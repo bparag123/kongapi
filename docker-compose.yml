@@ -1,0 +1,20 @@
+version: '3.3'
+
+#This will create different containers per service
+services:
+  #This is a kong Container
+  kong:
+    image: kong
+    #The config folder will be stored in the container path /usr/local/kong/declarative
+    volumes:
+      - "./config:/usr/local/kong/declarative"
+    #This is setup for the env file
+    env_file:
+      - ./kong.env
+    restart: always
+    #The 8000 port of the system will be mapped to 8000 port of the container
+    ports:
+      - "8000:8000/tcp"
+      - "127.0.0.1:7990:8001/tcp"
+      - "8443:8443/tcp"
+      - "127.0.0.1:8444:8444/tcp"

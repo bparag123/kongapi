@@ -1,0 +1,13 @@
+_format_version: "2.1"
+
+#This will define all the end point for the gateway
+services:
+
+#This is the name of service
+- name: my-chat-app
+  host: p-chat-v1.herokuapp.com
+  #Here we can provide the end points of the service we want to avail for the client
+  routes:
+  - name: room-chat
+    paths:
+    - /chat
